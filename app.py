@@ -39,4 +39,12 @@ if st.button("Predict House Price"):
 
     prediction = model.predict(poly_data)
 
-    st.success(f"🏡 Predicted House Price: ${prediction[0]*100000:,.2f}")
+# Prediction in USD
+price_usd = prediction[0] * 100000
+
+# USD to INR conversion (1 USD = ₹86, change if needed)
+usd_to_inr = 86
+
+price_inr = price_usd * usd_to_inr
+
+st.success(f"🏡 Predicted House Price: ₹ {price_inr:,.2f}")
