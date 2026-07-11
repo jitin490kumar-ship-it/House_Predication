@@ -48,3 +48,12 @@ usd_to_inr = 86
 price_inr = price_usd * usd_to_inr
 
 st.success(f"🏡 Predicted House Price: ₹ {price_inr:,.2f}")
+price_usd = prediction[0] * 100000
+usd_to_inr = 86
+
+price_inr = price_usd * usd_to_inr
+
+if price_inr >= 10000000:
+    st.success(f"🏡 Estimated House Price: ₹ {price_inr/10000000:.2f} Crore")
+else:
+    st.success(f"🏡 Estimated House Price: ₹ {price_inr/100000:.2f} Lakh")
